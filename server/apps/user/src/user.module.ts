@@ -12,6 +12,7 @@ import { PrismaService } from '../../../prisma/prisma.service';
 import { UserResolver } from './users.resolver';
 import { EmailModule } from './email/email.module';
 import { EmailService } from './email/email.service';
+import { AuthGuard } from './guards/auth.guard';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { EmailService } from './email/email.service';
     PrismaService,
     UserResolver,
     EmailService,
+    AuthGuard,
   ],
 })
 export class UserModule {}
