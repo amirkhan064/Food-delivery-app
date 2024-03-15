@@ -24,6 +24,7 @@ export class JWTTokenSender {
       },
       {
         secret: this.configService.get<string>('REFRESH_TOKEN_SECRET'),
+        expiresIn: '3d',
       },
     );
 
