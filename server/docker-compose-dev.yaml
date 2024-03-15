@@ -1,0 +1,27 @@
+version: "3"
+services:
+  gateway:
+    container_name: gateway
+    build:
+      context: .
+      target: development
+    command: pnpm run start:dev gateway
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '3000:3000'
+  user:
+    container_name: user
+    build:
+      context: .
+      target: development
+    command: pnpm run start:dev
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '4000:4000'
+volumes:
+  db:
+    driver: local
